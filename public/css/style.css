@@ -86,6 +86,19 @@ h1, h2, h3 {
   background-color: #ffeaa7;
 }
 
+.header i,
+.footer i {
+  color: black;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+.fa-globe::before, .fa-plane-departure::before {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+}
+
 
 
 /* Weather Carousel */
@@ -148,6 +161,11 @@ h2.weather {
 .project-intro p {
   font-size: 1.2rem;
   color: black;
+}
+
+.fa-sun {
+  color: #fbc531; 
+  margin-left: 8px;
 }
 
 .attractions-grid {
@@ -370,11 +388,14 @@ h2.weather {
   .search-bar input,
   .search-bar button {
     width: 100%;
+    font-size: 1rem;
   }
 
   .search-bar input {
     margin-bottom: 0.5rem;
     margin-right: 0;
+    width: 98%;
+    padding-right: 0;
   }
 
 
@@ -392,5 +413,9 @@ h2.weather {
 
   .project-intro p {
     font-size: 1rem;
+  }
+
+  .search-bar input {
+    width: 96%;
   }
 }
