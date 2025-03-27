@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  include common/header
+
+  if forecast
+    h2.weather 6 Days Weather Forecast in #{location}
+    include common/weather-carousel
+
+    h2.attractions Top Attractions in #{location}
+    .attractions-grid
+      each attr in attractions
+        include common/attraction-card
+
+    if totalPages > 1
+      .pagination
+        if currentPage > 1
+          a(href=`/?location=${location}&page=${currentPage - 1}`) Prev
+
+        span Page #{currentPage} of #{totalPages}
+
+        if currentPage < totalPages
+          a(href=`/?location=${location}&page=${currentPage + 1}`) Next
+
+  else
+    .project-intro
+      h1 Welcome to the Travel Planner & Weather Guide
+      p Search for any city to see top attractions and the 6-day weather forecast. 🌤️
+
+  include common/footer

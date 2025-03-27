@@ -1,0 +1,12 @@
+.weather-carousel
+  each day in forecast.timelines.daily.slice(0, 6)
+    - const code = day.values.weatherCodeMax || day.values.weatherCodeMin;
+    - const description = weatherDescriptions[code] || { label: 'Unknown', icon: 'fa-question-circle', color: 'gray' };
+    .weather-card
+      p
+        strong #{new Date(day.time).toDateString()}
+      p
+        i(class=`fas ${description.icon} weather-icon`, title=description.label, style=`color: ${description.color}; margin-right: 8px;`)
+        | #{description.label}
+      p Temp: #{day.values.temperatureAvg}°C
+      p Humidity: #{day.values.humidityAvg}%

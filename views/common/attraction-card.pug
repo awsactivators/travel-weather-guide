@@ -1,0 +1,43 @@
+.attraction-card
+  if attr.photoRef
+    img(src=`/api/photo?photoRef=${attr.photoRef}`, alt=attr.name)
+
+  if attr.name
+    h4.name= attr.name
+
+  if attr.description
+    p
+      strong Types:
+      |  #{attr.description}
+
+  if attr.address
+    p.clickable-address(data-address=attr.address)
+      strong.address Address:
+      |  #{attr.address}
+
+  //- Modal container
+  .map-modal.hidden
+    iframe.map-iframe
+    button.map-close-btn(type="button") Close
+
+  if attr.rating
+    p
+      strong Rating:
+      |  #{attr.rating}
+
+  if attr.phone
+    p
+      strong Phone:
+      |  #{attr.phone}
+
+  if attr.open_now !== undefined
+    p
+      strong Open Now:
+      |  #{attr.open_now ? 'Yes' : 'No'}
+
+  if attr.opening_hours && attr.opening_hours.length
+    details
+      summary Opening Hours
+      ul
+        each line in attr.opening_hours
+          li= line

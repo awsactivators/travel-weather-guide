@@ -1,0 +1,396 @@
+:root {
+  --primary: #0077cc;
+  --accent: #E0B856;
+  --bg-light: #f9fbfd;
+  --text-dark: #333;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f8;
+  background-image: url('/image/globe.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  margin-bottom: 100px;
+}
+
+.app {
+  margin: auto;
+  padding: 1rem;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #2a2a2a;
+}
+
+
+/* Header */
+.header {
+  background-color: var(--accent);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.search-bar input {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #2a2a2a;
+  color: whitesmoke;
+  margin-right: 15px;
+}
+
+.search-bar button {
+  background-color: var(--accent);
+  color: black;
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #ffeaa7;
+}
+
+
+
+/* Weather Carousel */
+h2.weather {
+  margin: 19px 0 0 0;
+}
+
+.weather-carousel {
+  display: flex;
+  overflow-x: auto;
+  padding: 1rem 0;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.weather-card {
+  min-width: 160px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  font-weight: 500;
+}
+
+.weather-card i {
+  font-size: 1.2rem;
+  color: #333;
+  margin-right: 8px;
+}
+
+.weather-icon {
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+
+
+
+/* Attraction */
+.weather, .attractions {
+  color: whitesmoke;
+}
+
+.project-intro {
+  margin-top: 4rem;
+  background-color: whitesmoke;
+  padding: 15px;
+  text-align: center;
+}
+
+.project-intro h1, .project-intro p {
+  color: black;
+}
+
+.project-intro p {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.attraction-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.attraction-card:hover {
+  transform: translateY(-4px);
+}
+
+.attraction-card img {
+  width: 100%;
+  height: 275.63px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.attraction-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.attraction-card p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.address-title {
+  color: black;
+}
+
+.address {
+  color: black;
+}
+
+.clickable-address {
+  color: #0077cc;
+  cursor: pointer;
+}
+
+.clickable-address:hover {
+  color: #005999;
+  text-decoration: underline;
+}
+
+
+
+/* Map Modal */
+.map-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  z-index: 999;
+  box-shadow: var(--shadow);
+  width: 90%;
+  max-width: 600px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map-modal iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+}
+
+.map-close-btn {
+  margin-top: 1rem;
+  background-color: var(--accent);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.map-modal.show {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f9fbfd;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 100px;
+}
+
+.pagination a {
+  padding: 0.5rem 1rem;
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.pagination span {
+  font-weight: bold;
+}
+
+
+/* Footer */
+.footer {
+  background-color: var(--accent);
+  color: black;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 12px 12px 0 0;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.api-links {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.api-links a {
+  color: black;
+  font-weight: bold;
+}
+
+
+
+@media (max-width: 768px) {
+  .weather-card {
+    flex: 1 0 auto;
+  }
+
+
+  h1, h2 {
+    font-size: 1.4rem;
+  }
+
+  .project-intro {
+    padding: 25px;
+  }
+
+  .attractions-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem 3rem;
+  }
+  
+  .attraction-card {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+  }
+  
+
+  .attraction-card img {
+    width: 220px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+
+  .attraction-card h4,
+  .attraction-card p {
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+    text-align: center;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    width: 100%;
+  }
+
+  .search-bar input {
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+  }
+
+
+  .weather-card {
+    font-size: 0.9rem;
+    min-width: 140px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.1rem;
+  }
+
+  .project-intro p {
+    font-size: 1rem;
+  }
+}
